@@ -14,6 +14,7 @@ UCLASS()
 class AURA_API UDebuffNiagaraComponent : public UNiagaraComponent
 {
 	GENERATED_BODY()
+
 public:
 	UDebuffNiagaraComponent();
 

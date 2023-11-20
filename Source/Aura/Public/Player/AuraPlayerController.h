@@ -26,6 +26,7 @@ UCLASS()
 class AURA_API AAuraPlayerController : public APlayerController
 {
 	GENERATED_BODY()
+
 public:
 	AAuraPlayerController();
 	virtual void PlayerTick(float DeltaTime) override;
@@ -39,10 +40,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void HideMagicCircle();
 
-	
 protected:
 	virtual void BeginPlay() override;
 	virtual void SetupInputComponent() override;
+
 private:
 	UPROPERTY(EditAnywhere, Category="Input")
 	TObjectPtr<UInputMappingContext> AuraContext;
@@ -76,7 +77,7 @@ private:
 
 	UAuraAbilitySystemComponent* GetASC();
 
-	
+
 	FVector CachedDestination = FVector::ZeroVector;
 	float FollowTime = 0.f;
 	float ShortPressThreshold = 0.5f;

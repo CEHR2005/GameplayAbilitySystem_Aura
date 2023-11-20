@@ -14,8 +14,8 @@
 struct FAuraGameplayTags
 {
 public:
-    static const FAuraGameplayTags& Get() { return GameplayTags;}
-    static void InitializeNativeGameplayTags();
+	static const FAuraGameplayTags& Get() { return GameplayTags; }
+	static void InitializeNativeGameplayTags();
 
 	FGameplayTag Attributes_Primary_Strength;
 	FGameplayTag Attributes_Primary_Intelligence;
@@ -32,7 +32,7 @@ public:
 	FGameplayTag Attributes_Secondary_ManaRegeneration;
 	FGameplayTag Attributes_Secondary_MaxHealth;
 	FGameplayTag Attributes_Secondary_MaxMana;
-	
+
 	FGameplayTag Attributes_Meta_IncomingXP;
 
 	FGameplayTag InputTag_LMB;
@@ -66,10 +66,10 @@ public:
 	FGameplayTag Debuff_Frequency;
 
 	FGameplayTag Abilities_None;
-	
+
 	FGameplayTag Abilities_Attack;
 	FGameplayTag Abilities_Summon;
-	
+
 	FGameplayTag Abilities_HitReact;
 
 	FGameplayTag Abilities_Status_Locked;
@@ -80,9 +80,9 @@ public:
 	FGameplayTag Abilities_Type_Offensive;
 	FGameplayTag Abilities_Type_Passive;
 	FGameplayTag Abilities_Type_None;
-	
+
 	FGameplayTag Abilities_Fire_FireBolt;
-	FGameplayTag Abilities_Fire_FireBlast;	
+	FGameplayTag Abilities_Fire_FireBlast;
 	FGameplayTag Abilities_Lightning_Electrocute;
 	FGameplayTag Abilities_Arcane_ArcaneShards;
 
@@ -102,7 +102,7 @@ public:
 	FGameplayTag Montage_Attack_2;
 	FGameplayTag Montage_Attack_3;
 	FGameplayTag Montage_Attack_4;
-	
+
 	TMap<FGameplayTag, FGameplayTag> DamageTypesToResistances;
 	TMap<FGameplayTag, FGameplayTag> DamageTypesToDebuffs;
 
@@ -114,5 +114,5 @@ public:
 	FGameplayTag Player_Block_CursorTrace;
 
 private:
-    static FAuraGameplayTags GameplayTags;
+	static FAuraGameplayTags GameplayTags;
 };

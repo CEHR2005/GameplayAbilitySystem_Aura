@@ -1,4 +1,3 @@
-
 #include "AuraAbilityTypes.h"
 
 bool FAuraGameplayEffectContext::NetSerialize(FArchive& Ar, UPackageMap* Map, bool& bOutSuccess)
@@ -10,7 +9,7 @@ bool FAuraGameplayEffectContext::NetSerialize(FArchive& Ar, UPackageMap* Map, bo
 		{
 			RepBits |= 1 << 0;
 		}
-		if (bReplicateEffectCauser && EffectCauser.IsValid() )
+		if (bReplicateEffectCauser && EffectCauser.IsValid())
 		{
 			RepBits |= 1 << 1;
 		}
@@ -87,7 +86,6 @@ bool FAuraGameplayEffectContext::NetSerialize(FArchive& Ar, UPackageMap* Map, bo
 				RepBits |= 1 << 19;
 			}
 		}
-		
 	}
 
 	Ar.SerializeBits(&RepBits, 19);
@@ -118,7 +116,7 @@ bool FAuraGameplayEffectContext::NetSerialize(FArchive& Ar, UPackageMap* Map, bo
 		{
 			if (!HitResult.IsValid())
 			{
-				HitResult = TSharedPtr<FHitResult>(new FHitResult());
+				HitResult = MakeShared<FHitResult>();
 			}
 		}
 		HitResult->NetSerialize(Ar, Map, bOutSuccess);
@@ -162,7 +160,7 @@ bool FAuraGameplayEffectContext::NetSerialize(FArchive& Ar, UPackageMap* Map, bo
 		{
 			if (!DamageType.IsValid())
 			{
-				DamageType = TSharedPtr<FGameplayTag>(new FGameplayTag());
+				DamageType = MakeShared<FGameplayTag>();
 			}
 		}
 		DamageType->NetSerialize(Ar, Map, bOutSuccess);
@@ -178,7 +176,7 @@ bool FAuraGameplayEffectContext::NetSerialize(FArchive& Ar, UPackageMap* Map, bo
 	if (RepBits & (1 << 16))
 	{
 		Ar << bIsRadialDamage;
-		
+
 		if (RepBits & (1 << 17))
 		{
 			Ar << RadialDamageInnerRadius;
@@ -192,13 +190,13 @@ bool FAuraGameplayEffectContext::NetSerialize(FArchive& Ar, UPackageMap* Map, bo
 			RadialDamageOrigin.NetSerialize(Ar, Map, bOutSuccess);
 		}
 	}
-	
+
 
 	if (Ar.IsLoading())
 	{
 		AddInstigator(Instigator.Get(), EffectCauser.Get()); // Just to initialize InstigatorAbilitySystemComponent
-	}	
-	
+	}
+
 	bOutSuccess = true;
 	return true;
 }

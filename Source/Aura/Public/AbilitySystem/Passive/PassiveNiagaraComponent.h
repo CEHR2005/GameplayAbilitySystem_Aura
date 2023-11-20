@@ -14,6 +14,7 @@ UCLASS()
 class AURA_API UPassiveNiagaraComponent : public UNiagaraComponent
 {
 	GENERATED_BODY()
+
 public:
 	UPassiveNiagaraComponent();
 

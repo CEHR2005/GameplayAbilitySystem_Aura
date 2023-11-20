@@ -1,7 +1,6 @@
 #pragma once
 
 #include "GameplayEffectTypes.h"
-#include "../../../../../Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.29.30133/INCLUDE/stdbool.h"
 #include "AuraAbilityTypes.generated.h"
 
 class UGameplayEffect;
@@ -11,7 +10,9 @@ struct FDamageEffectParams
 {
 	GENERATED_BODY()
 
-	FDamageEffectParams(){}
+	FDamageEffectParams()
+	{
+	}
 
 	UPROPERTY(BlueprintReadWrite)
 	TObjectPtr<UObject> WorldContextObject = nullptr;
@@ -72,7 +73,6 @@ struct FDamageEffectParams
 
 	UPROPERTY(BlueprintReadWrite)
 	FVector RadialDamageOrigin = FVector::ZeroVector;
-	
 };
 
 USTRUCT(BlueprintType)
@@ -81,9 +81,8 @@ struct FAuraGameplayEffectContext : public FGameplayEffectContext
 	GENERATED_BODY()
 
 public:
-
 	bool IsCriticalHit() const { return bIsCriticalHit; }
-	bool IsBlockedHit () const { return bIsBlockedHit; }
+	bool IsBlockedHit() const { return bIsBlockedHit; }
 	bool IsSuccessfulDebuff() const { return bIsSuccessfulDebuff; }
 	float GetDebuffDamage() const { return DebuffDamage; }
 	float GetDebuffDuration() const { return DebuffDuration; }
@@ -106,18 +105,27 @@ public:
 	void SetDeathImpulse(const FVector& InImpulse) { DeathImpulse = InImpulse; }
 	void SetKnockbackForce(const FVector& InForce) { KnockbackForce = InForce; }
 	void SetIsRadialDamage(bool bInIsRadialDamage) { bIsRadialDamage = bInIsRadialDamage; }
-	void SetRadialDamageInnerRadius(float InRadialDamageInnerRadius) { RadialDamageInnerRadius = InRadialDamageInnerRadius; }
-	void SetRadialDamageOuterRadius(float InRadialDamageOuterRadius) { RadialDamageOuterRadius = InRadialDamageOuterRadius; }
+
+	void SetRadialDamageInnerRadius(float InRadialDamageInnerRadius)
+	{
+		RadialDamageInnerRadius = InRadialDamageInnerRadius;
+	}
+
+	void SetRadialDamageOuterRadius(float InRadialDamageOuterRadius)
+	{
+		RadialDamageOuterRadius = InRadialDamageOuterRadius;
+	}
+
 	void SetRadialDamageOrigin(const FVector& InRadialDamageOrigin) { RadialDamageOrigin = InRadialDamageOrigin; }
-	
+
 	/** Returns the actual struct used for serialization, subclasses must override this! */
-	virtual UScriptStruct* GetScriptStruct() const
+	virtual UScriptStruct* GetScriptStruct() const override
 	{
 		return FGameplayEffectContext::StaticStruct();
 	}
 
 	/** Creates a copy of this context, used to duplicate for later modifications */
-	virtual FGameplayEffectContext* Duplicate() const
+	virtual FGameplayEffectContext* Duplicate() const override
 	{
 		FGameplayEffectContext* NewContext = new FGameplayEffectContext();
 		*NewContext = *this;
@@ -130,13 +138,12 @@ public:
 	}
 
 	/** Custom serialization, subclasses must override this */
-	virtual bool NetSerialize(FArchive& Ar, class UPackageMap* Map, bool& bOutSuccess);
-	
-protected:
+	virtual bool NetSerialize(FArchive& Ar, class UPackageMap* Map, bool& bOutSuccess) override;
 
+protected:
 	UPROPERTY()
 	bool bIsBlockedHit = false;
-	
+
 	UPROPERTY()
 	bool bIsCriticalHit = false;
 
@@ -173,7 +180,7 @@ protected:
 	FVector RadialDamageOrigin = FVector::ZeroVector;
 };
 
-template<>
+template <>
 struct TStructOpsTypeTraits<FAuraGameplayEffectContext> : public TStructOpsTypeTraitsBase2<FAuraGameplayEffectContext>
 {
 	enum

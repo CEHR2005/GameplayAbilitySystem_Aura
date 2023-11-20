@@ -13,5 +13,4 @@ UCLASS()
 class AURA_API UAuraMeleeAttack : public UAuraDamageGameplayAbility
 {
 	GENERATED_BODY()
-	
 };

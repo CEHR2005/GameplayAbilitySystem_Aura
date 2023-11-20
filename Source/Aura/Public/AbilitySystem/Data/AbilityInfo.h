@@ -49,8 +49,8 @@ UCLASS()
 class AURA_API UAbilityInfo : public UDataAsset
 {
 	GENERATED_BODY()
-public:
 
+public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "AbilityInformation")
 	TArray<FAuraAbilityInfo> AbilityInformation;
 

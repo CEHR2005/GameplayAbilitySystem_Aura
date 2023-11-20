@@ -28,8 +28,8 @@ UCLASS()
 class AURA_API ULevelUpInfo : public UDataAsset
 {
 	GENERATED_BODY()
-public:
 
+public:
 	UPROPERTY(EditDefaultsOnly)
 	TArray<FAuraLevelUpInfo> LevelUpInformation;
 

@@ -41,6 +41,7 @@ UCLASS()
 class AURA_API UCharacterClassInfo : public UDataAsset
 {
 	GENERATED_BODY()
+
 public:
 	UPROPERTY(EditDefaultsOnly, Category = "Character Class Defaults")
 	TMap<ECharacterClass, FCharacterClassDefaultInfo> CharacterClassInformation;
