@@ -7,6 +7,7 @@
 #include "Interaction/PlayerInterface.h"
 #include "AuraCharacter.generated.h"
 
+class AInventory;
 class UNiagaraComponent;
 class UCameraComponent;
 class USpringArmComponent;
@@ -20,6 +21,11 @@ class AURA_API AAuraCharacter : public AAuraCharacterBase, public IPlayerInterfa
 
 public:
 	AAuraCharacter();
+
+// Inventory
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	AInventory* InventoryComponent;
+	
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void OnRep_PlayerState() override;
 

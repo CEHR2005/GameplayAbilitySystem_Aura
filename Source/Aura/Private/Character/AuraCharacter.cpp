@@ -12,6 +12,7 @@
 #include "Player/AuraPlayerState.h"
 #include "NiagaraComponent.h"
 #include "AbilitySystem/Debuff/DebuffNiagaraComponent.h"
+#include "Actor/Inventory.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "UI/HUD/AuraHUD.h"
@@ -41,6 +42,9 @@ AAuraCharacter::AAuraCharacter()
 	bUseControllerRotationYaw = false;
 
 	CharacterClass = ECharacterClass::Elementalist;
+
+	InventoryComponent = CreateDefaultSubobject<AInventory>(TEXT("InventoryComponent"));
+
 }
 
 void AAuraCharacter::PossessedBy(AController* NewController)
