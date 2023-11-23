@@ -7,7 +7,7 @@
 #include "Inventory.generated.h"
 
 USTRUCT(BlueprintType)
-struct FItem
+struct FItem: public FTableRowBase
 {
 	GENERATED_BODY()
 
@@ -19,7 +19,7 @@ public:
 	FString Description;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
-	int32 Cost;
+	int32 Cost = 0;
 	
 	bool operator==(const FItem& Other) const
 	{
