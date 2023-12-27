@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Inventory.generated.h"
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInventoryUpdated);
 
 USTRUCT(BlueprintType)
 struct FItem: public FTableRowBase
@@ -46,4 +47,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	void RemoveItem(const FItem& Item);
+
+	UPROPERTY(BlueprintAssignable, Category = "Inventory")
+	FOnInventoryUpdated OnInventoryUpdated;
 };
