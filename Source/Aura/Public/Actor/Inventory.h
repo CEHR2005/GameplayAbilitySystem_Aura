@@ -35,10 +35,6 @@ class AURA_API AInventory : public AActor
 public:	
 	AInventory();
 
-protected:
-	virtual void BeginPlay() override;
-
-public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
 	TArray<FItem> Items;
 
@@ -47,7 +43,14 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	void RemoveItem(const FItem& Item);
-
+	
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void RemoveItemByIndex(int32 Index);
 	UPROPERTY(BlueprintAssignable, Category = "Inventory")
 	FOnInventoryUpdated OnInventoryUpdated;
+protected:
+	virtual void BeginPlay() override;
+
+private:
+
 };

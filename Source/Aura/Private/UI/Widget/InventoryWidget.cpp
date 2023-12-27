@@ -25,7 +25,7 @@ void UInventoryWidget::UpdateInventory()
 			UE_LOG(LogTemp, Warning, TEXT("AuraCharacter and InventoryComponent found"))
 			AInventory* Inventory = AuraCharacter->InventoryComponent;
 			TArray<FItem> InventoryItems = Inventory->Items;
-			const int32 NumColumns = 4; 
+			const int32 NumColumns = 3; 
 			int32 Row = 0;
 			int32 Column = 0;
 			for (const FItem& Item : InventoryItems)
@@ -40,6 +40,7 @@ void UInventoryWidget::UpdateInventory()
 					if (ItemWidget)
 					{
 						ItemWidget->InitializeItem(Item);
+						ItemWidget->Index = Row * NumColumns + Column;
 						UUniformGridSlot* GridSlot = InventoryGridPanel->AddChildToUniformGrid(ItemWidget);
 						GridSlot->SetRow(Row);
 						GridSlot->SetColumn(Column);

@@ -27,6 +27,11 @@ void UInventorySlotWidget::InitializeItem(const FItem& ItemData)
 
 	if (BuyButton)
 	{
-		// BuyButton->OnClicked.AddDynamic(this, &UShopItemWidget::BuyButtonClicked);
+		BuyButton->OnClicked.AddDynamic(this, &UInventorySlotWidget::BuyButtonClicked);
 	}
+}
+
+void UInventorySlotWidget::BuyButtonClicked()
+{
+	OnBuyButtonClicked();
 }

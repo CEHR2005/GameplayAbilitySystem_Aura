@@ -35,5 +35,18 @@ void AInventory::RemoveItem(const FItem& Item)
 
 }
 
+void AInventory::RemoveItemByIndex(int32 Index)
+{
+	if (Index < Items.Num())
+	{
+		Items.RemoveAt(Index);
+		OnInventoryUpdated.Broadcast();
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Trying to remove item at index %d, but inventory has only %d items."), Index, Items.Num());
+	}
+}
+
 
 

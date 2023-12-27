@@ -22,6 +22,14 @@ public:
 	
 	UPROPERTY(BlueprintReadOnly, Category = "Item")
 	FItem CurrentItem;
+	UFUNCTION(BlueprintCallable)
+	void BuyButtonClicked();
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Shop")
+	void OnBuyButtonClicked();
+
+	UPROPERTY(BlueprintReadOnly, Category = "Item")
+	int32 Index;
 protected:
 
 
