@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ActiveGameplayEffectHandle.h"
+#include "GameplayEffect.h"
 #include "GameFramework/Actor.h"
 #include "Inventory.generated.h"
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInventoryUpdated);
@@ -22,6 +24,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
 	int32 Cost = 0;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item", meta = (AllowedClasses="GameplayEffect"))
+	TSubclassOf<UGameplayEffect> GameplayEffect;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
+	FActiveGameplayEffectHandle ActiveEffectHandle;
 	bool operator==(const FItem& Other) const
 	{
 		return Name == Other.Name; // You can compare additional fields if needed
