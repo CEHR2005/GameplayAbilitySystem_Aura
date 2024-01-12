@@ -41,6 +41,15 @@ public:
 	FGameplayTag InputTag_2;
 	FGameplayTag InputTag_3;
 	FGameplayTag InputTag_4;
+
+	FGameplayTag InputTag_Item1;
+	FGameplayTag InputTag_Item2;
+	FGameplayTag InputTag_Item3;
+	FGameplayTag InputTag_Item4;
+	FGameplayTag InputTag_Item5;
+	FGameplayTag InputTag_Item6;
+
+	
 	FGameplayTag InputTag_Passive_1;
 	FGameplayTag InputTag_Passive_2;
 

@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "ActiveGameplayEffectHandle.h"
 #include "GameplayEffect.h"
+#include "AbilitySystem/Abilities/AuraGameplayAbility.h"
 #include "GameFramework/Actor.h"
 #include "Inventory.generated.h"
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInventoryUpdated);
@@ -29,6 +30,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
 	FActiveGameplayEffectHandle ActiveEffectHandle;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
+	TSubclassOf<UAuraGameplayAbility> Ability;
 	bool operator==(const FItem& Other) const
 	{
 		return Name == Other.Name; // You can compare additional fields if needed

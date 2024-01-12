@@ -118,7 +118,37 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 		FName("InputTag.4"),
 		FString("Input Tag for 4 key")
 	);
-
+	
+	GameplayTags.InputTag_Item1 = UGameplayTagsManager::Get().AddNativeGameplayTag(
+    	FName("InputTag.Item1"),
+    	FString("Input Tag for Item1")
+    );
+    
+    GameplayTags.InputTag_Item2 = UGameplayTagsManager::Get().AddNativeGameplayTag(
+    	FName("InputTag.Item2"),
+    	FString("Input Tag for Item2")
+    );
+    
+    GameplayTags.InputTag_Item3 = UGameplayTagsManager::Get().AddNativeGameplayTag(
+    	FName("InputTag.Item3"),
+    	FString("Input Tag for Item3")
+    );
+    
+    GameplayTags.InputTag_Item4 = UGameplayTagsManager::Get().AddNativeGameplayTag(
+    	FName("InputTag.Item4"),
+    	FString("Input Tag for Item4")
+    );
+    
+    GameplayTags.InputTag_Item5 = UGameplayTagsManager::Get().AddNativeGameplayTag(
+    	FName("InputTag.Item5"),
+    	FString("Input Tag for Item5")
+    );
+    
+    GameplayTags.InputTag_Item6 = UGameplayTagsManager::Get().AddNativeGameplayTag(
+    	FName("InputTag.Item6"),
+    	FString("Input Tag for Item6")
+    );
+	
 	GameplayTags.InputTag_Passive_1 = UGameplayTagsManager::Get().AddNativeGameplayTag(
 		FName("InputTag.Passive.1"),
 		FString("Input Tag Passive Ability 1")
